@@ -37,19 +37,19 @@ void Gun::gameEnd(Jeu* jeu)
 
 void Gun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new GunBullet());
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new GunBullet());
+    }
 }
 
 void Gun::fire2()
 {
-	if(decMunitions2(1))
-	{
-		jouerSonArme(_son2);
-		tireBullet(new GunBullet(), 180);
-	}
+    if(decMunitions2(1))
+    {
+        jouerSonArme(_son2);
+        tireBullet(new GunBullet(), 180);
+    }
 }
 

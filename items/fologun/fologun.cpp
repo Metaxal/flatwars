@@ -11,12 +11,12 @@ SDL_Surface* Fologun::_surface = NULL;
 
 Fologun::Fologun() : Arme()
 {
-	_rateInit1 = 20;
-	_rateInit2 = 20;
-	_munitionsMax = 32;
-	_munitionsInit = 0;
-	
-	initAnimer(4, 48, 48, 1);
+    _rateInit1 = 20;
+    _rateInit2 = 20;
+    _munitionsMax = 32;
+    _munitionsInit = 0;
+    
+    initAnimer(4, 48, 48, 1);
 }
 
 Arme* Fologun::clone() 
@@ -39,21 +39,21 @@ void Fologun::gameEnd(Jeu* jeu)
 
 void Fologun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new FologunBullet());
-		tireBullet(new FologunBullet(), 180);
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new FologunBullet());
+        tireBullet(new FologunBullet(), 180);
+    }
 }
 
 void Fologun::fire2()
 {
-	if(decMunitions2(1))
-	{
-		jouerSonArme(_son2);
-		tireBullet(new FologunBullet());
-		tireBullet(new FologunBullet(), 180);
-	}
+    if(decMunitions2(1))
+    {
+        jouerSonArme(_son2);
+        tireBullet(new FologunBullet());
+        tireBullet(new FologunBullet(), 180);
+    }
 }
 

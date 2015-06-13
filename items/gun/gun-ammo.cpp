@@ -12,7 +12,7 @@ GunAmmo::GunAmmo() : Ammo()
 
 bool GunAmmo::bonusAgir(Joueur *j)
 {
-	return j->incMunitions(INC_AMMO, _weaponNumT);
+    return j->incMunitions(INC_AMMO, _weaponNumT);
 }
 
 Clonable* GunAmmo::clone()

@@ -28,11 +28,11 @@ void Affichable::afficher(SDL_Surface* SScreen, int xg, int yg)
         _numImg = (_numImg + 1) % (_nImg * _imgDelay);
         //printf("r.x=%d\t_numImg=%d\n", r.x, _numImg);
         
-	    apply_surface(SScreen, xg, yg, surface(), &r);
+        apply_surface(SScreen, xg, yg, surface(), &r);
     } 
     else
     {
-    	apply_surface(SScreen, xg, yg, surface());
-	}
+        apply_surface(SScreen, xg, yg, surface());
+    }
 }
 

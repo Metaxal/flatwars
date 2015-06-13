@@ -12,7 +12,7 @@ PlasmagunAmmo::PlasmagunAmmo() : Ammo()
 
 bool PlasmagunAmmo::bonusAgir(Joueur *j)
 {
-	return j->incMunitions(INC_AMMO, _weaponNumT);
+    return j->incMunitions(INC_AMMO, _weaponNumT);
 }
 
 Clonable* PlasmagunAmmo::clone()

@@ -11,10 +11,10 @@ SDL_Surface* Minegun::_surface = NULL;
 
 Minegun::Minegun() : Arme()
 {
-	_rateInit1 = 20;
-	_rateInit2 = 20;
-	_munitionsMax = 9;
-	_munitionsInit = 0;
+    _rateInit1 = 20;
+    _rateInit2 = 20;
+    _munitionsMax = 9;
+    _munitionsInit = 0;
 }
 
 Arme* Minegun::clone() 
@@ -37,19 +37,19 @@ void Minegun::gameEnd(Jeu* jeu)
 
 void Minegun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new MinegunBullet());
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new MinegunBullet());
+    }
 }
 
 void Minegun::fire2()
 {
-	if(decMunitions2(1))
-	{
-		jouerSonArme(_son2);
-		tireBullet(new MinegunBullet(), 180);
-	}
+    if(decMunitions2(1))
+    {
+        jouerSonArme(_son2);
+        tireBullet(new MinegunBullet(), 180);
+    }
 }
 

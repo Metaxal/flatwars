@@ -12,7 +12,7 @@ int @Weapon@Ammo::_weaponNumT = -1;
 
 bool @Weapon@Ammo::bonusAgir(Joueur *j)
 {
-	return j->incMunitions(INC_AMMO, _weaponNumT);
+    return j->incMunitions(INC_AMMO, _weaponNumT);
 }
 
 Clonable* @Weapon@Ammo::clone()

@@ -62,10 +62,10 @@ public:
     int dirigerVers(int cx, int cy);
 
     bool execCode(int inst, int& i);
-	virtual void demanderAction();
+    virtual void demanderAction();
     virtual void OSD();
     
-	virtual void mourir(Joueur* tueur);
+    virtual void mourir(Joueur* tueur);
     virtual void revivre();
 
     void afficherInst();

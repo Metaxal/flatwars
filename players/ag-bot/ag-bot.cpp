@@ -146,8 +146,8 @@ void AGBot::initAGBot()
 template<typename T> // le type de bonus qu'on cherche
 T* AGBot::findFirst()
 {
-	int anx, any;
-	dir(anx, any);
+    int anx, any;
+    dir(anx, any);
 
     int decXinit = anx;
     int decYinit = any;
@@ -199,33 +199,33 @@ T* AGBot::findFirst()
 
 void AGBot::changerCible()
 {
-	Joueur* c = _jCible;
-	int dmin = 10000;
+    Joueur* c = _jCible;
+    int dmin = 10000;
 
-	for(int i = 0; i < nbJoueurs(); i++)
-	{
-		Joueur* j = joueurs(i);
-		if(j == this || j->mort())
-			continue;
+    for(int i = 0; i < nbJoueurs(); i++)
+    {
+        Joueur* j = joueurs(i);
+        if(j == this || j->mort())
+            continue;
 
-		int d = abs(j->x()-x()) + abs(j->y()-y());
-		if(d < dmin)
-		{
-			dmin = d;
-			c = j;
-		}
+        int d = abs(j->x()-x()) + abs(j->y()-y());
+        if(d < dmin)
+        {
+            dmin = d;
+            c = j;
+        }
 
-	}
+    }
 
-	_jCible = c;
+    _jCible = c;
 }
 
 // cx et cy sont des coordonnées graphiques et non de case.
 int AGBot::dirigerVers(int cx, int cy)
 {
-	double angCible = (360*atan2(cy-y(),cx-x())) / (2*3.141592654);
-	//int da = ((int)angCible-angle()+180*3)%360;
-	int da = ((((int)angCible+180*3)%360 - (angle()+180*3)%360)+180*3)%360;
+    double angCible = (360*atan2(cy-y(),cx-x())) / (2*3.141592654);
+    //int da = ((int)angCible-angle()+180*3)%360;
+    int da = ((((int)angCible+180*3)%360 - (angle()+180*3)%360)+180*3)%360;
 
     int act = 0;
 
@@ -239,7 +239,7 @@ int AGBot::dirigerVers(int cx, int cy)
         act |= TURN_LEFT;
     else if(d < 1000) // etre assez pres pour tirer*/
     {
-        tourner(da-180);	// on affine la visée
+        tourner(da-180);    // on affine la visée
         //action |= FIRE1;
         //action |= STRAFE_LEFT;
     }
@@ -352,26 +352,26 @@ void AGBot::revivre()
 
 void AGBot::afficherInst()
 {
-	SDL_Rect r;
+    SDL_Rect r;
 
-	r.x = 1;
-	r.y = 69;
-	r.w = 270;
-	r.h = 13;
+    r.x = 1;
+    r.y = 69;
+    r.w = 270;
+    r.h = 13;
 
     int nbjparcol = YMAX/(DYLETTRE2*1.5)-2;
     for(unsigned int i = 0; i < _code.size(); i++)
     {
-		int xg = (i/nbjparcol)*280+40;
-		int yg = (i%nbjparcol)*15+20;
+        int xg = (i/nbjparcol)*280+40;
+        int yg = (i%nbjparcol)*15+20;
 
         if(i == _instCourant)
-			r.y = 40;
-		else
-			r.y = 54;
+            r.y = 40;
+        else
+            r.y = 54;
 
         if(i == _instCourant)
-			afficherBarre2(xg-20, yg-1, &r);
+            afficherBarre2(xg-20, yg-1, &r);
 
         stringstream s;
             //int ci = _code[i];

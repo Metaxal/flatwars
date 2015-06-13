@@ -6,19 +6,19 @@ SDL_Surface* TrackingBullet::_surface = NULL;
 
 TrackingBullet::TrackingBullet(Autogun* aG) : Bullet()
 {
-	_decVie = 0;
-	_vitesse = VBULLET_MAX;
-	_arme = aG;
+    _decVie = 0;
+    _vitesse = VBULLET_MAX;
+    _arme = aG;
 }
 
 void TrackingBullet::exploseJoueur(Joueur* cible)
 {
-	_arme->setCible(cible);
+    _arme->setCible(cible);
 }
 
 void TrackingBullet::exploseMur(int xc, int yc)
 {
-	//_arme->setCible(NULL);
+    //_arme->setCible(NULL);
 }
 
 void TrackingBullet::gameInit(Jeu* jeu)

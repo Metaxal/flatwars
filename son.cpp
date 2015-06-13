@@ -8,7 +8,7 @@ using std::vector;
 using std::cout;
 using std::endl;
 
-#define NB_BUF		5
+#define NB_BUF        5
 
 
 //The music that will be played
@@ -29,7 +29,7 @@ bool InitSon()
 
 void FinSons()
 {
-	for(unsigned int i = 0; i < sons.size(); i++)
+    for(unsigned int i = 0; i < sons.size(); i++)
         Mix_FreeChunk(sons[i]);
 
     //Quit SDL_mixer

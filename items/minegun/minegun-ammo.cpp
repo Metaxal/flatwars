@@ -12,7 +12,7 @@ MinegunAmmo::MinegunAmmo() : Ammo()
 
 bool MinegunAmmo::bonusAgir(Joueur *j)
 {
-	return j->incMunitions(INC_AMMO, _weaponNumT);
+    return j->incMunitions(INC_AMMO, _weaponNumT);
 }
 
 Clonable* MinegunAmmo::clone()

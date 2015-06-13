@@ -37,19 +37,19 @@ void @Weapon@::gameEnd(Jeu* jeu)
 
 void @Weapon@::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new @Weapon@Bullet());
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new @Weapon@Bullet());
+    }
 }
 
 void @Weapon@::fire2()
 {
-	if(decMunitions2(1))
-	{
-		jouerSonArme(_son2);
-		tireBullet(new @Weapon@Bullet(), 180);
-	}
+    if(decMunitions2(1))
+    {
+        jouerSonArme(_son2);
+        tireBullet(new @Weapon@Bullet(), 180);
+    }
 }
 

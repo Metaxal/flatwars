@@ -12,14 +12,14 @@ SDL_Surface* Plasmagun::_surface = NULL;
 
 Plasmagun::Plasmagun() : Arme()
 {
-	_rateInit1 = 20;
-	_rateInit2 = 20;
-	_munitionsMax = 44;
-	_munitionsInit = 0;
+    _rateInit1 = 20;
+    _rateInit2 = 20;
+    _munitionsMax = 44;
+    _munitionsInit = 0;
 
-	charge = 0;
-	
-	initAnimer(4, 48, 48, 1);
+    charge = 0;
+    
+    initAnimer(4, 48, 48, 1);
 }
 
 Arme* Plasmagun::clone() 
@@ -42,31 +42,31 @@ void Plasmagun::gameEnd(Jeu* jeu)
 
 void Plasmagun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		Joueur* j = _proprio->zeJeu()->joueurPlusProche(_proprio->x(), _proprio->y(), _proprio);
-		tireBullet(new PlasmagunBullet(j));
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        Joueur* j = _proprio->zeJeu()->joueurPlusProche(_proprio->x(), _proprio->y(), _proprio);
+        tireBullet(new PlasmagunBullet(j));
+    }
 }
 
 void Plasmagun::fire2()
 {
-	if(charge < CHARGE_MAX && decMunitions2(1))
-	{
-		jouerSonArme(_son2);
-		charge++;
-	}
+    if(charge < CHARGE_MAX && decMunitions2(1))
+    {
+        jouerSonArme(_son2);
+        charge++;
+    }
 }
 
 void Plasmagun::noFire()
 {
-	if(charge > 0)
-	{
-		jouerSonArme(_son1);
-		Joueur* j = _proprio->zeJeu()->joueurPlusProche(_proprio->x(), _proprio->y(), _proprio);
-		tireBullet(new PlasmagunBullet(j, charge));
-		charge = 0;
-	}
+    if(charge > 0)
+    {
+        jouerSonArme(_son1);
+        Joueur* j = _proprio->zeJeu()->joueurPlusProche(_proprio->x(), _proprio->y(), _proprio);
+        tireBullet(new PlasmagunBullet(j, charge));
+        charge = 0;
+    }
 }
 

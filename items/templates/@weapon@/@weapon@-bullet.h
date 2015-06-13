@@ -11,13 +11,13 @@ class @Weapon@Bullet : public Bullet
     static SDL_Surface* _surface;
     
 public:
-	@Weapon@Bullet();
+    @Weapon@Bullet();
 
-	// "virtual static" methods
-	static void gameInit(Jeu* jeu);
-	static void gameEnd(Jeu* jeu);
-	
-	virtual SDL_Surface* surface() { return _surface; }
+    // "virtual static" methods
+    static void gameInit(Jeu* jeu);
+    static void gameEnd(Jeu* jeu);
+    
+    virtual SDL_Surface* surface() { return _surface; }
 };
 
 

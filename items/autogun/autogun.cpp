@@ -12,12 +12,12 @@ SDL_Surface* Autogun::_surface = NULL;
 
 Autogun::Autogun() : Arme()
 {
-	_rateInit1 = 5;
-	_rateInit2 = 10;
-	_munitionsMax = 200;
-	_munitionsInit = 0;
+    _rateInit1 = 5;
+    _rateInit2 = 10;
+    _munitionsMax = 200;
+    _munitionsInit = 0;
 
-	_cibleA = NULL;
+    _cibleA = NULL;
 }
 
 Arme* Autogun::clone() 
@@ -40,38 +40,38 @@ void Autogun::gameEnd(Jeu* jeu)
 
 void Autogun::fire1()
 {
-	if(_cibleA != NULL)
-		if(_cibleA->nbMorts() != _cibleNbMorts)
-			_cibleA = NULL;
+    if(_cibleA != NULL)
+        if(_cibleA->nbMorts() != _cibleNbMorts)
+            _cibleA = NULL;
 
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new AutogunBullet(_cibleA));
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new AutogunBullet(_cibleA));
+    }
 }
 
 void Autogun::fire2()
 {
-	if(decMunitions2(1))
-		tireBullet(new TrackingBullet(this));
+    if(decMunitions2(1))
+        tireBullet(new TrackingBullet(this));
 }
 
 void Autogun::setCible(Joueur* c)
 {
-	if(c != NULL)
-	{
-		if(c->mort())
-		{
-			_cibleNbMorts = -1;
-			c = NULL;
-		}
-		else
-			_cibleNbMorts = c->nbMorts();
-	}
-	else
-		_cibleNbMorts = -1;
+    if(c != NULL)
+    {
+        if(c->mort())
+        {
+            _cibleNbMorts = -1;
+            c = NULL;
+        }
+        else
+            _cibleNbMorts = c->nbMorts();
+    }
+    else
+        _cibleNbMorts = -1;
 
-	_cibleA = c;
+    _cibleA = c;
 }
 

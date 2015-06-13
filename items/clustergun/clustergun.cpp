@@ -11,10 +11,10 @@ SDL_Surface* Clustergun::_surface = NULL;
 
 Clustergun::Clustergun() : Arme()
 {
-	_rateInit1 = 30;
-	_rateInit2 = 30;
-	_munitionsMax = 12;
-	_munitionsInit = 0;
+    _rateInit1 = 30;
+    _rateInit2 = 30;
+    _munitionsMax = 12;
+    _munitionsInit = 0;
 }
 
 Arme* Clustergun::clone() 
@@ -37,21 +37,21 @@ void Clustergun::gameEnd(Jeu* jeu)
 
 void Clustergun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		tireBullet(new ClustergunBullet());
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        tireBullet(new ClustergunBullet());
+    }
 }
 
 void Clustergun::fire2()
 {
-	int m = munitions();
-	if(decMunitions2(m))
-		for(int i = 0; i < m; i++)
-		{
-		    jouerSonArme(_son2);
-		    tireBullet(new ClustergunBullet(), (i*30)/m-15);
-	    }
+    int m = munitions();
+    if(decMunitions2(m))
+        for(int i = 0; i < m; i++)
+        {
+            jouerSonArme(_son2);
+            tireBullet(new ClustergunBullet(), (i*30)/m-15);
+        }
 }
 

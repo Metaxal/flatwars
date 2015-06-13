@@ -11,10 +11,10 @@ SDL_Surface* Shotgun::_surface = NULL;
 
 Shotgun::Shotgun() : Arme()
 {
-	_rateInit1 = 20;
-	_rateInit2 = 30;
-	_munitionsMax = 24;
-	_munitionsInit = 0;
+    _rateInit1 = 20;
+    _rateInit2 = 30;
+    _munitionsMax = 24;
+    _munitionsInit = 0;
 }
 
 Arme* Shotgun::clone() 
@@ -37,21 +37,21 @@ void Shotgun::gameEnd(Jeu* jeu)
 
 void Shotgun::fire1()
 {
-	if(decMunitions1(1))
-	{
-		jouerSonArme(_son1);
-		for(int i = 0; i < 10; i++)
-			tireBullet(new ShotgunBullet(), i-5);
-	}
+    if(decMunitions1(1))
+    {
+        jouerSonArme(_son1);
+        for(int i = 0; i < 10; i++)
+            tireBullet(new ShotgunBullet(), i-5);
+    }
 }
 
 void Shotgun::fire2()
 {
-	if(decMunitions2(2))
-	{
-		jouerSonArme(_son2);
-		for(int i = 0; i < 20; i++)
-			tireBullet(new ShotgunBullet(), i-10);
-	}
+    if(decMunitions2(2))
+    {
+        jouerSonArme(_son2);
+        for(int i = 0; i < 20; i++)
+            tireBullet(new ShotgunBullet(), i-10);
+    }
 }
 

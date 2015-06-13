@@ -12,7 +12,7 @@ ClustergunAmmo::ClustergunAmmo() : Ammo()
 
 bool ClustergunAmmo::bonusAgir(Joueur *j)
 {
-	return j->incMunitions(INC_AMMO, _weaponNumT);
+    return j->incMunitions(INC_AMMO, _weaponNumT);
 }
 
 Clonable* ClustergunAmmo::clone()

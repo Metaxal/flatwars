@@ -1,13 +1,13 @@
 #include "life-bonus.h"
 #include "../../jeubot.h"
 
-#define INC_VIE		15
+#define INC_VIE        15
 
 SDL_Surface* LifeBonus::_surface = NULL;
 
 bool LifeBonus::bonusAgir(Joueur *j)
 {
-	return j->incVie(INC_VIE);
+    return j->incVie(INC_VIE);
 }
 
 Clonable* LifeBonus::clone()

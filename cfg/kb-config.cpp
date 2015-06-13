@@ -25,32 +25,32 @@ void askKey(int n)
 
 void DisplayState(SDL_KeyboardEvent *key)
 {
-	if (key->type == SDL_KEYUP)
-		printf("RELEASED: ");
-	else
-		printf("PRESSED: ");
+    if (key->type == SDL_KEYUP)
+        printf("RELEASED: ");
+    else
+        printf("PRESSED: ");
  
 }
 
 void DisplayModifiers(SDL_KeyboardEvent *key)
 {
-	SDLMod modifier = key->keysym.mod;
-	if( modifier & KMOD_NUM ) printf( "NUMLOCK " );
-	if( modifier & KMOD_CAPS ) printf( "CAPSLOCK " );
-	if( modifier & KMOD_MODE ) printf( "MODE " );
-	if( modifier & KMOD_LCTRL ) printf( "LCTRL " );
-	if( modifier & KMOD_RCTRL ) printf( "RCTRL " );
-	if( modifier & KMOD_LSHIFT ) printf( "LSHIFT " );
-	if( modifier & KMOD_RSHIFT ) printf( "RSHIFT " );
-	if( modifier & KMOD_LALT ) printf( "LALT " );
-	if( modifier & KMOD_RALT ) printf( "RALT " );
-	if( modifier & KMOD_LMETA ) printf( "LMETA " );
-	if( modifier & KMOD_RMETA ) printf( "RMETA " );
+    SDLMod modifier = key->keysym.mod;
+    if( modifier & KMOD_NUM ) printf( "NUMLOCK " );
+    if( modifier & KMOD_CAPS ) printf( "CAPSLOCK " );
+    if( modifier & KMOD_MODE ) printf( "MODE " );
+    if( modifier & KMOD_LCTRL ) printf( "LCTRL " );
+    if( modifier & KMOD_RCTRL ) printf( "RCTRL " );
+    if( modifier & KMOD_LSHIFT ) printf( "LSHIFT " );
+    if( modifier & KMOD_RSHIFT ) printf( "RSHIFT " );
+    if( modifier & KMOD_LALT ) printf( "LALT " );
+    if( modifier & KMOD_RALT ) printf( "RALT " );
+    if( modifier & KMOD_LMETA ) printf( "LMETA " );
+    if( modifier & KMOD_RMETA ) printf( "RMETA " );
 }
 
 void DisplayKey(SDL_KeyboardEvent *key)
 {
-	printf( "%s (%d)\n", SDL_GetKeyName(key->keysym.sym), key->keysym.sym);
+    printf( "%s (%d)\n", SDL_GetKeyName(key->keysym.sym), key->keysym.sym);
 }
  
  
@@ -112,17 +112,17 @@ void DisplayKey(SDL_KeyboardEvent *key)
                 break;
 
                 // check for keypresses
-		    case SDL_KEYDOWN:
-			    //DisplayState(&event.key);
-			    //DisplayModifiers(&event.key);
-			    DisplayKey(&event.key);
-	            cfgFile << actions[nAct] << "=" << event.key.keysym.sym << endl;
+            case SDL_KEYDOWN:
+                //DisplayState(&event.key);
+                //DisplayModifiers(&event.key);
+                DisplayKey(&event.key);
+                cfgFile << actions[nAct] << "=" << event.key.keysym.sym << endl;
                 askKey(++nAct);
-			    if(nAct == nbActions || event.key.keysym.sym == SDLK_ESCAPE)
+                if(nAct == nbActions || event.key.keysym.sym == SDLK_ESCAPE)
                     done = true;
-			    break;
-		    case SDL_KEYUP:
-		        break;
+                break;
+            case SDL_KEYUP:
+                break;
             } // end switch
         } // end of message processing
 

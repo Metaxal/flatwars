@@ -5,10 +5,10 @@ SDL_Surface* PlasmagunBullet::_surface = NULL;
 
 PlasmagunBullet::PlasmagunBullet(Joueur* c, int charge) : AutogunBullet(c, VBULLET_MAX/6)
 {
-	_decVie = 27*charge;
-	_vitesse = _vmax; // initial speed = max speed
-	
-	initAnimer(8, 8, 8, 1);
+    _decVie = 27*charge;
+    _vitesse = _vmax; // initial speed = max speed
+    
+    initAnimer(8, 8, 8, 1);
 }
 
 void PlasmagunBullet::gameInit(Jeu* jeu)
@@ -35,6 +35,6 @@ void PlasmagunBullet::afficher(SDL_Surface* SScreen, int xg, int yg)
     _numImg = (_numImg + 1) % (nImg * nDelay);
     //printf("r.x=%d\t_numImg=%d\n", r.x, _numImg);
     
-	apply_surface(SScreen, xg, yg, surface(), &r);
+    apply_surface(SScreen, xg, yg, surface(), &r);
 }
 */

@@ -1,5 +1,5 @@
 /*
-*	!!! Pb si on supprime un joueur !!!
+*    !!! Pb si on supprime un joueur !!!
 */
 
 #include <math.h>
@@ -23,59 +23,59 @@ using std::setw;
 //Joueur* SimpleBot::_cible = NULL;
 
 SimpleBot::SimpleBot(int numShip) :
-	Joueur(numShip),
-	_mode(0),
-	_turnAlea(TURN_RIGHT),
-	_timerAmmo(0),
-	_xCible(0),
-	_yCible(0)
+    Joueur(numShip),
+    _mode(0),
+    _turnAlea(TURN_RIGHT),
+    _timerAmmo(0),
+    _xCible(0),
+    _yCible(0)
 {
-		_cible = NULL;
+        _cible = NULL;
 
-		atourne = TURN_RIGHT;
-		monAction = 0;
-		decompte = 0;
+        atourne = TURN_RIGHT;
+        monAction = 0;
+        decompte = 0;
 }
 
 void SimpleBot::setAction(int ac)
 {
-	//action |= ac;
-	if(!decompte)
-	{
-		monAction = ac; // |=
-		decompte = 10;
-	}
+    //action |= ac;
+    if(!decompte)
+    {
+        monAction = ac; // |=
+        decompte = 10;
+    }
 }
 
 void SimpleBot::changerCible()
 {
-	Joueur* c = _cible;
-	int dmin = 10000;
+    Joueur* c = _cible;
+    int dmin = 10000;
 
-	for(int i = 0; i < nbJoueurs(); i++)
-	{
-		Joueur* j = joueurs(i);
-		if(j == this || j->mort())
-			continue;
+    for(int i = 0; i < nbJoueurs(); i++)
+    {
+        Joueur* j = joueurs(i);
+        if(j == this || j->mort())
+            continue;
 
-		int d = abs(j->x()-x()) + abs(j->y()-y());
-		if(d < dmin)
-		{
-			dmin = d;
-			c = j;
-		}
+        int d = abs(j->x()-x()) + abs(j->y()-y());
+        if(d < dmin)
+        {
+            dmin = d;
+            c = j;
+        }
 
-	}
+    }
 
-	_cible = c;
+    _cible = c;
 }
 
 
 template<typename T> // le type de mbonus qu'on cherche
 T* SimpleBot::findFirstCaseAmmo()
 {
-	int anx, any;
-	dir(anx, any);
+    int anx, any;
+    dir(anx, any);
 
     int decXinit = anx;
     int decYinit = any;
@@ -126,9 +126,9 @@ T* SimpleBot::findFirstCaseAmmo()
 // cx et cy sont des coordonnées graphiques et non de case.
 int SimpleBot::dirigerVers(int cx, int cy)
 {
-	double angCible = (360*atan2(cy-y(),cx-x())) / (2*3.141592654);
-	//int da = ((int)angCible-angle()+180*3)%360;
-	int da = ((((int)angCible+180*3)%360 - (angle()+180*3)%360)+180*3)%360;
+    double angCible = (360*atan2(cy-y(),cx-x())) / (2*3.141592654);
+    //int da = ((int)angCible-angle()+180*3)%360;
+    int da = ((((int)angCible+180*3)%360 - (angle()+180*3)%360)+180*3)%360;
 
     int act = 0;
 
@@ -142,7 +142,7 @@ int SimpleBot::dirigerVers(int cx, int cy)
         act |= TURN_LEFT;
     else if(d < 1000) // etre assez pres pour tirer*/
     {
-        tourner(da-180);	// on affine la visée
+        tourner(da-180);    // on affine la visée
         //action |= FIRE1;
         //action |= STRAFE_LEFT;
     }
@@ -153,39 +153,39 @@ int SimpleBot::dirigerVers(int cx, int cy)
 void SimpleBot::demanderAction()
 {
 
-	action = 0;
+    action = 0;
 
-	int xc = xg2xc(x());
-	int yc = yg2yc(y());
+    int xc = xg2xc(x());
+    int yc = yg2yc(y());
 
-	int anx, any;
-	dir(anx, any);
+    int anx, any;
+    dir(anx, any);
 
-	int xd, yd;
-	caseVisee(xd, yd);
-	bool cMD = caseMur(xd, yd) || (abs(vx()) < 0.01 && abs(vy()) < 0.01);
+    int xd, yd;
+    caseVisee(xd, yd);
+    bool cMD = caseMur(xd, yd) || (abs(vx()) < 0.01 && abs(vy()) < 0.01);
 
-	if(_cible == NULL || rand() % 100 > 95)
-		changerCible();
+    if(_cible == NULL || rand() % 100 > 95)
+        changerCible();
 
-	//int vit = vx()*vx()+vy()*vy();
+    //int vit = vx()*vx()+vy()*vy();
 
-	if(munitions(-1) == 0)
-		armeSuivante();
+    if(munitions(-1) == 0)
+        armeSuivante();
 
-	if(decompte) // on va pas changer d'attitude a chaque frame hein !
-	{
-		decompte--;
-		//if(!cMD)
-		//	decompte = 0;
-		if(monAction & TURN_LEFT)
-			action |= TURN_LEFT;
-		else if(monAction & TURN_RIGHT)
-			action |= TURN_RIGHT;
+    if(decompte) // on va pas changer d'attitude a chaque frame hein !
+    {
+        decompte--;
+        //if(!cMD)
+        //    decompte = 0;
+        if(monAction & TURN_LEFT)
+            action |= TURN_LEFT;
+        else if(monAction & TURN_RIGHT)
+            action |= TURN_RIGHT;
 
-		action |= FORWARD;
+        action |= FORWARD;
 
-	}
+    }
 
     if(jCourant())
     {
@@ -322,13 +322,13 @@ void SimpleBot::demanderAction()
                 action |= TURN_RIGHT;*/
         }
     }
-	else if(_mode == ATTACK)
+    else if(_mode == ATTACK)
     {
         changerCible();
         _mode = ATTACK2;
     }
     else //if(_mode == ATTACK2)
-	{
+    {
         if(munitions(-1) == 0 || _cible == this) // cassos !
         {
             /**/_mode = GETAMMO;
@@ -372,7 +372,7 @@ void SimpleBot::demanderAction()
 
                 if(d < 1000) // etre assez pres pour tirer
                 {
-                    //tourner(da-180);	// on affine la visée
+                    //tourner(da-180);    // on affine la visée
                     action |= FIRE1;
                     action |= STRAFE_LEFT;
                 }
@@ -389,19 +389,19 @@ void SimpleBot::demanderAction()
             if(bo)
                 _mode = GETLIFE;
         }
-	}
+    }
 
 
 
-	// t'as pas le droit de tirer ! Nan mé !
-	//action &= ~((int) (FIRE1 | FIRE2));
+    // t'as pas le droit de tirer ! Nan mé !
+    //action &= ~((int) (FIRE1 | FIRE2));
 
 
 }
 
 void SimpleBot::mourir(Joueur* tueur)
 {
-	//if( rand() % 10 > 4 )
-		changerCible();
+    //if( rand() % 10 > 4 )
+        changerCible();
     _mode = ATTACK;
 }
