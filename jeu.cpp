@@ -6,9 +6,6 @@
 #include <algorithm>
 #include "jeu.h"
 #include "jeubot.h"
-//#include "humain.h"
-//#include "stupid.h"
-//#include "agbot.h"
 #include "ammo.h"
 
 // Armes, ammos et bonus:
@@ -55,17 +52,6 @@ Jeu::Jeu()
     _scoreMode(false)
 {
     int i;
-    /*for(i = 0; i < NB_MAX_JOUEURS; i++)
-        _joueurs[i] = NULL;
-
-    for(i = 0; i < NB_MAX_BULLETS; i++)
-        _bullets[i] = NULL;
-
-    for(i = 0; i < NB_MAX_BONUS; i++)
-        _bonus[i] = NULL;
-
-    for(i = 0; i < NB_MAX_ARMES; i++)
-        _armes[i] = NULL;*/
 
     RECTViseur.x = 0;
     RECTViseur.y = 263;
@@ -92,7 +78,7 @@ void Jeu::jCourantSuivant()
         jc2++;
         jc2 %= _joueurs.size();
     }
-    while(_joueurs[jc2] == NULL);// && jc2 != _jCourant) ;
+    while(_joueurs[jc2] == NULL);
 
     _jCourant = jc2;
     _joueurs[_jCourant]->setJCourant(true);
@@ -100,7 +86,6 @@ void Jeu::jCourantSuivant()
 
 bool compScore(Joueur* j1, Joueur* j2)
 {
-    //cout << "j1 = " << (int)j1 << " j2 = " << (int)j2 << endl;
     if(j1 == NULL || j2 == NULL)
         cout << "j NULL !!" << endl;
     if(j1->score() > j2->score())
@@ -166,7 +151,7 @@ bool Jeu::positJoueur(Joueur* j)
 void Jeu::ajouterJoueur(Joueur* j)
 {
     j->setZeJeu(this); // tres important !
-    
+
     PRINT_HERE
 
     if(!positJoueur(j))
@@ -174,7 +159,7 @@ void Jeu::ajouterJoueur(Joueur* j)
         cout << "Error: Could not place player." << endl;
         exit(-1);
     }
-        
+
     PRINT_HERE
 
     _joueurs.push_back(j);
@@ -225,7 +210,7 @@ void Jeu::enleverBullet(unsigned int b)
 *   (this remarks are obsolete)
 *
 * Registers a weapon, with the associated bonus
-* 
+*
 */
 void Jeu::registerArme(Arme* arm, Ammo* ammo)
 {
@@ -268,14 +253,12 @@ Jeu::~Jeu()
         enleverBullet(i);
     for(i = 0; i < _bonus.size(); i++)
         enleverBonus(i);
-        
-    Joueur::freeSurfaces();
-    
-    endItems(this); // 'this' is still valid here? (probably)
-    
-    endPlayers(this);
 
-    //_instance = NULL;
+    Joueur::freeSurfaces();
+
+    endItems(this); // 'this' is still valid here? (probably)
+
+    endPlayers(this);
 }
 
 Joueur* Jeu::colBulletJoueur(Bullet* bal)
@@ -297,7 +280,7 @@ void Jeu::loadBoardCfg(const string fich)
     _cfgPlayers.clear();
 
     ::ifstream ifs(fich.c_str());
-    
+
     char ligne[5000];
     while(!ifs.eof())
     {
@@ -386,7 +369,6 @@ void Jeu::murs(int nb)
                 vx = 0;
                 vy = rand()%(2)*2-1;
             }
-
         }
         else
         {
@@ -397,12 +379,10 @@ void Jeu::murs(int nb)
                 vx = rand()%(2)*2-1;
                 vy = 0;
             }
-
         }
 
         nb--;
     }
-
 }
 
 /*
@@ -476,14 +456,13 @@ void Jeu::init(const string boardFile)
     _nbCasesX = XCMAX;
     _nbCasesY = YCMAX;
     _scoreMode = false;
-    //_nbBotsACreer = NB_MAX_JOUEURS-1;
 
     PRINT_HERE
 
     loadBoardCfg(boardFile);
     cout << "Board loaded:" << _nbCasesX << " " << _nbCasesY << endl;
-    
-    
+
+
     PRINT_HERE
 
     int i, j;
@@ -656,14 +635,14 @@ void Jeu::init(const string boardFile)
     // Register all weapons and bonus:
     initItems(this);
 
-    for(unsigned int bi = 0; bi < _bonusKinds.size(); bi++) 
+    for(unsigned int bi = 0; bi < _bonusKinds.size(); bi++)
     {
         Bonus* b = _bonusKinds[bi];
         unsigned int p = (_nbCasesX * _nbCasesY * b->probaOcc()) / 10000;
         printf("proba %s (%u): %u\n", b->name().c_str(), bi, p);
         for(unsigned int i = 0; i < p; i++)
-            ajouterBonus((Bonus*)b->clone(), 
-                rand() % (_nbCasesX - 2) + 1, 
+            ajouterBonus((Bonus*)b->clone(),
+                rand() % (_nbCasesX - 2) + 1,
                 rand() % (_nbCasesY - 2) + 1);
     }
 
@@ -674,7 +653,7 @@ void Jeu::init(const string boardFile)
     PRINT_HERE
 
     initPlayers(this);
-    
+
     PRINT_HERE
 
     // Adding players based on the configuration file
@@ -692,11 +671,10 @@ void Jeu::init(const string boardFile)
 
     for(unsigned int j = 0; j < _joueurs.size(); j++)
     {
-        //_joueurs[j]->ajouterArme(_arm->clone());
         _joueurs[j]->init();
         _joueurs[j]->ajouterArmes(_armes);
     }
-        
+
     PRINT_HERE
 
 }
@@ -719,7 +697,6 @@ void Jeu::afficherScores()
     vector<Joueur*> jsorted(_joueurs);
 
     sort(jsorted.begin(), jsorted.end(),  compScore); // ne fonctionne pas bien !!
-    //sort(jsorted.begin(), jsorted.end()); // operator> modifié
 
     int nbjparcol = YMAX/(DYLETTRE2*1.5)-2;
 
@@ -733,28 +710,20 @@ void Jeu::afficherScores()
         else
             r.y = 54;
 
-/*        r.x = 1;
-        r.w = 270;
-        r.h = 13;*/
-
         if(jsorted[i] == _joueurs[_jCourant])
             afficherBarre2(xg-20, yg-1, &r);
 
-        //itoa(i, mot, 10);
         snprintf(mot, 50, "%d", i);
         afficherMotScores(xg-20, yg, mot);
 
         afficherMotScores(xg+10, yg, jsorted[i]->nom());
 
-        //itoa(jsorted[i]->score(), mot, 10);
         snprintf(mot, 50, "%d", jsorted[i]->score());
         afficherMotScores(xg+140, yg, mot);
 
-        //itoa(jsorted[i]->nbMorts(), mot, 10);
         snprintf(mot, 50, "%d", jsorted[i]->nbMorts());
         afficherMotScores(xg+190, yg, mot);
 
-        //itoa(jsorted[i]->ship()->num(), mot, 10);
         snprintf(mot, 50, "%d", jsorted[i]->ship()->num());
         afficherMotScores(xg+220, yg, mot);
 
@@ -819,13 +788,6 @@ void Jeu::afficherCarte(SDL_Surface* SScreen)
         else
             _yEcran = y - YMAX/2;
 
-        /*SDL_Rect r;
-        r.x = max(0, xg2xc(_xEcran));
-        r.y = max(0, yg2yc(_yEcran));
-        r.w = carteAffWidth();
-        r.h = carteAffHeight();
-        ::afficherCarte(&r);*/
-
         for(int i = max(0, xg2xc(_xEcran)); i < min(_nbCasesX, xg2xc(_xEcran+XMAX)+1); i++)
         for(int j = max(0, yg2yc(_yEcran)); j < min(_nbCasesY, yg2yc(_yEcran+YMAX)+1); j++)
         {
@@ -835,12 +797,8 @@ void Jeu::afficherCarte(SDL_Surface* SScreen)
 
             Bonus* bon = caseBonus(i, j);
             if(bon != NULL)
-                if(bon->affichable()) 
+                if(bon->affichable())
                     bon->afficher(SScreen, xg, yg);
-                /*{
-                    SDL_Rect r = bon->RECTImg();
-                    afficherCase(xg, yg, &r);
-                }*/
 
             int m = caseMur(i, j);
             if(m)
@@ -854,42 +812,8 @@ void Jeu::afficherCarte(SDL_Surface* SScreen)
         // Affichage du viseur
         double ang = (jC->angle()*2*PI)/360;
         afficherCase(x-_xEcran-DXBULLET/2+DXSHIP*2*cos(ang), y-_yEcran-DYBULLET/2+(double)DYSHIP*2*sin(ang), &RECTViseur);
-        
-        
+
         jC->afficherHUD(SScreen);
-
-
-        /*
-        int decx = 5;
-        char mot[50];
-        SDL_Rect r = jC->RECTImg_arme();
-        afficherCase(decx, YMAX-5-DYARME, &r);
-        //itoa(jC->munitions(-1), mot, 10);
-        snprintf(mot, 50, "%d", jC->munitions(-1));
-        afficherMot(5+DXARME+5, YMAX-5-DYARME, mot);
-
-        decx += 2*DXARME;
-        afficherCase(decx, YMAX-5-DYCASE, &RECTVie);
-        SDL_Rect vieJ = RECTVie;
-        vieJ.x += DXCASE/2;
-        vieJ.w = DXCASE/2;
-        int nv = DYCASE - (jC->vie()*DYCASE)/jC->ship()->vieInit();
-        vieJ.y += nv;
-        //if(vieJ.y < vieJ.)
-            afficherCase(5+2*DXARME, YMAX-5-DYCASE+nv, &vieJ);
-        decx += 5+DXCASE/2;
-        //itoa(jC->vie(), mot, 10);
-        snprintf(mot, 50, "%d", jC->vie());
-        afficherMot(decx, YMAX-5-DYARME, mot);
-
-        decx += DXCASE*2;
-        snprintf(mot, 50, "FRAGS %d", jC->score());
-        afficherMot(decx, YMAX-5-DYARME/2, mot);
-        */
-
-        /*if(_scoreMode)
-            afficherFeuilleScores();//*/
-
     }// fin : jC != NULL
 
 }
@@ -902,7 +826,6 @@ void Jeu::afficherJoueurs(int _xEcran, int _yEcran)
         j = _joueurs[i];
         SDL_Rect r = j->RECTImg();
         afficherCase(j->x()-_xEcran, j->y()-_yEcran, &r);
-        //afficherCase(j->x()-_xEcran+DXCASE-4, j->y()-_yEcran, &(j->RECTImg())); // TEST STEREOGRAMME
         if(j->revivable())
             afficherCase(j->x()-_xEcran, j->y()-_yEcran, &(RECTExpl[NB_IMG_EXPL-1]));
         else
@@ -915,7 +838,7 @@ void Jeu::afficherJoueurs(int _xEcran, int _yEcran)
         j->caseVisee(xc, yc);
         if(occupe(xc, yc))
             afficherCase(j->x()-_xEcran+DXCASE, j->y()-_yEcran, &(RECTExpl[1]));
-            
+
         j->OSD();
     }
 }
@@ -927,20 +850,12 @@ void Jeu::afficherBullets(SDL_Surface* SScreen, int _xEcran, int _yEcran)
         Bullet* b = _bullets[i];
         b->afficher(SScreen, b->x()-_xEcran, b->y()-_yEcran);
     }
-    /*{
-        Bullet* b = _bullets[i];
-        SDL_Rect r = b->RECTImg();
-        afficherCase(b->x()-_xEcran, b->y()-_yEcran, &r);
-    }*/
 }
 
 void Jeu::jouer()
 {
     unsigned int i;
     Joueur* jo;
-
-/*    if(imagePrete)
-        afficherCarte();*/
 
     for(i = 0; i < _bonus.size(); i++)
         _bonus[i]->decAttente();
@@ -951,7 +866,7 @@ void Jeu::jouer()
         {
             if(jo->touche())
                 jo->decTouche();
-                
+
             if(jo->mort())
             {
                 jo->purgatoire();
@@ -1049,7 +964,7 @@ bool Jeu::collisionsJoueur(Joueur* j)
 }
 
 /*
-Returns the player that is the closest from (xg, yg), 
+Returns the player that is the closest from (xg, yg),
 except player saufJoueur.
 */
 Joueur* Jeu::joueurPlusProche(int xg, int yg, Joueur* saufJoueur)
@@ -1064,7 +979,7 @@ Joueur* Jeu::joueurPlusProche(int xg, int yg, Joueur* saufJoueur)
             int dx = (xg - j->x());
             int dy = (yg - j->y());
             double d = dx * dx + dy * dy;
-            if(joueurMin == NULL || d < distMin) 
+            if(joueurMin == NULL || d < distMin)
             {
                 joueurMin = j;
                 distMin = d;

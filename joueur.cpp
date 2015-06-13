@@ -33,14 +33,11 @@ Joueur::Joueur(int numShip)
     char nom[100];
     snprintf(nom, 100, "Zeb Hulon %d-%d", numShip, numJoueur);
     setNom(nom);
-    //for(int i = 0; i < NB_MAX_ARMES; i++)
-        //_armes[i] = NULL;
 }
 
 void Joueur::setNom(const char* nom)
 {
     _nom = nom;
-    //strncpy(_nom, nom, TAILLE_NOM);
 }
 
 Joueur::~Joueur()
@@ -55,7 +52,6 @@ void Joueur::init()
         revivre();
 
     _vie = _ship.vieInit();
-    //_vie = _ship.vieInit()/2; // FOR TESTS
     _bRevivre = false;
     _vx = 0;
     _vy = 0;
@@ -85,10 +81,8 @@ void Joueur::ajouterArme(Arme* arm)
     // donc en entrant ici, on est sur d'avoir de la place
 
     _armes.push_back(arm);
-    //_armes[_armes.size()] = arm;
     arm->setProprio(this);
     arm->setNumT(_armes.size());
-    //_armes.size()++;
 }
 
 void Joueur::armeSuivante()
@@ -144,13 +138,6 @@ SDL_Rect Joueur::RECTImg()
     return _ship.images[image()];
 }
 
-/*
-SDL_Rect Joueur::RECTImg_arme()
-{
-    // if(_armes.size() > 0) !!!
-    return _armes[_arme]->RECTImg();
-}*/
-
 int Joueur::nbJoueurs()
 {
     return _zeJeu->nbJoueurs();
@@ -186,16 +173,9 @@ bool Joueur::collision()
     bool col = collisionMur(); // modifie _vx et _vy !!
     if(_zeJeu->collisionsJoueur(this)) // modifie _vx et _vy !!
     {
-        //cout << "Collision Joueur" << endl;
         return true;
     }
 
-    /*if(col)
-        cout << "Collision Mur" << endl;
-    else
-        cout << "No collision" << endl;
-    */
-        
     return col;
 }
 
@@ -208,8 +188,6 @@ bool Joueur::collisionMur()
     int y1 = (int) _y;
     int x2 = (int)(_x + _vx);
     int y2 = (int)(_y + _vy);
-    
-    //printf("(%d %d) -> (%d %d)\n", x1, y1, x2, y2);
 
     int i;
 
@@ -697,7 +675,7 @@ void Joueur::loadSons()
     _sonMort = NouveauSon("snd/death.wav");
 }
 
-void Joueur::loadSurfaces() 
+void Joueur::loadSurfaces()
 {
     _SVieCadre = load_image("img/vie-cadre.bmp", 0, 0, 0);
     _SVie = load_image("img/vie.bmp", 255, 0, 255);
