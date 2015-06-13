@@ -27,7 +27,7 @@ Now it's ready to run:
 $ ./flatwars
 ```
 
-## How to play
+## Configuration files
 
 You can use either the mouse or the keyboard, or both.
 The some parameters such as screen resolution, keyboard configuration, board size, number of bots, etc. can be configured in the configuration file in the `cfg` directory.
@@ -36,4 +36,14 @@ By default, the `cfg/board.cfg` and `cfg/game.cfg` files are loaded. This can be
 $ ./flatwars -b <my-board-config-file> -g <my-game-config-file>
 ```
 
-
+The keys of the human player are defined in the (fixed) file `cfg/kb.cfg`. 
+To help define the keys, the `cfg` directory also contains a `kb-config` program.
+Compile it with
+```shell
+$ g++ -o kb-config kb-config.cpp -lSDL
+```
+then run it:
+```shell
+$ ./kb-config
+```
+The file `cfg/kb.cfg` will be overwritten with the keys you then press.
