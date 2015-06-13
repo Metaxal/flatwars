@@ -1,0 +1,20 @@
+[fichier pas du tout à jour...]
+
+Bon, alors, produit pas du tout fini !
+donc a prendre avec des pincettes.
+Par exmple, pas de alt-tab !
+Pour revenir sous windows, il faut absolument quitter le jeu (touche echap) sinon ca plante...
+
+On peut configurer certains parametres dans les fichiers de config "cfg\*.cfg", comme la resolution, le nombre de bots, ...
+
+
+Les touches sont définies dans "cfg\kb.cfg", mais toutes les touches ne sont pas encore utilisables, notamment certaines touches de fonction.
+Tous les sons ne sont pas encore mis. Donc pas de panique, ce n'est pas votre ordinateur qui se rebelle.
+
+Touches supplementaires (non configurables) :
+	tab : la camera se porte sur un autre joueur, mais vous jouez toujours et sans rien voir...
+	F1  : visualisation des scores.
+	echap : sortir du jeu.
+
+
+Voila, dites moi ce que vous en pensez !

@@ -1,0 +1,38 @@
+#include "items.h"
+#include "../jeu.h"
+
+#include "life/life-bonus.h"
+
+#include "gun/gun.h"
+#include "gun/gun-ammo.h"
+#include "gun/gun-bullet.h"
+
+// INCLUDE_ITEM_PLACEHOLDER
+
+void initItems(Jeu* jeu)
+{
+    LifeBonus::gameInit(jeu);
+    jeu->registerBonus(new LifeBonus());
+
+    Gun::gameInit(jeu);
+    GunAmmo::gameInit(jeu);
+    GunBullet::gameInit(jeu);
+    jeu->registerArme(new Gun(), new GunAmmo());
+    
+    // when adding a new weapon, automatically replace the following
+    // place holder by the initialization code of the weapon 
+    // and do not forget to re-add the place holder for a future weapon.
+    
+    // INIT_ITEM_PLACEHOLDER
+}
+
+void endItems(Jeu* jeu)
+{
+    LifeBonus::gameEnd(jeu);
+        
+    Gun::gameEnd(jeu);
+    GunAmmo::gameEnd(jeu);
+    GunBullet::gameEnd(jeu);
+    
+    // END_ITEM_PLACEHOLDER
+}

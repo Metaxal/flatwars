@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="JeuBot-SDL" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[- pour les bonus, faires des classes abstraites bonusVie, bonusArme, etc.
+pour pouvoir utiliser le dynamic_cast 
+
+- ajouter une pause
+- mettre une musique
+- l'image de la carte entière devrait être en mémoire !! pour ne pas avoir à la redessiner à chaque fois !
+- des murs électriques (les toucher c'est se prendre une décharge qui baisse la vie)
+
+- des balles qui passen à travers les vaisseaux, les murs ?
+- un bonus permettant de traverser les murs ?
+
+
+- des trous noirs dont il est difficile de s'échapper
+
+- différents jeux :
+  - course en passant par des bonus checkpoint
+  - tenir le plus longtemps possible sans arme dans un environnement hostile]]>
+			</notes>
+		</Option>
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\JeuBot-SDL.exe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\JeuBot-SDL.exe" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="D:\prog\SDL-1.2.12\include" />
+		</Compiler>
+		<Linker>
+			<Add library="mingw32" />
+			<Add library="SDLmain" />
+			<Add library="SDL.dll" />
+			<Add library="user32" />
+			<Add library="gdi32" />
+			<Add library="winmm" />
+			<Add library="dxguid" />
+			<Add library="SDL_image" />
+			<Add library="SDL_mixer" />
+			<Add library="SDL_ttf" />
+			<Add directory="D:\prog\SDL-1.2.12\lib" />
+		</Linker>
+		<Unit filename="AGBot.cpp" />
+		<Unit filename="AGBot.h" />
+		<Unit filename="Bullets.h" />
+		<Unit filename="JeuBot2.cpp" />
+		<Unit filename="JeuBot2.h" />
+		<Unit filename="arme.cpp" />
+		<Unit filename="arme.h" />
+		<Unit filename="autoball.cpp" />
+		<Unit filename="autoball.h" />
+		<Unit filename="autobullets.cpp" />
+		<Unit filename="autobullets.h" />
+		<Unit filename="autogun.cpp" />
+		<Unit filename="autogun.h" />
+		<Unit filename="balle.cpp" />
+		<Unit filename="balle.h" />
+		<Unit filename="bonus.cpp" />
+		<Unit filename="bonus.h" />
+		<Unit filename="clusterball.cpp" />
+		<Unit filename="clusterball.h" />
+		<Unit filename="clusterbullets.cpp" />
+		<Unit filename="clusterbullets.h" />
+		<Unit filename="clustergun.cpp" />
+		<Unit filename="clustergun.h" />
+		<Unit filename="foloball.cpp" />
+		<Unit filename="foloball.h" />
+		<Unit filename="folobullets.cpp" />
+		<Unit filename="folobullets.h" />
+		<Unit filename="fologun.cpp" />
+		<Unit filename="fologun.h" />
+		<Unit filename="gatlor.cpp" />
+		<Unit filename="gatlor.h" />
+		<Unit filename="guideball.cpp" />
+		<Unit filename="guideball.h" />
+		<Unit filename="gun.cpp" />
+		<Unit filename="gun.h" />
+		<Unit filename="gunbullets.cpp" />
+		<Unit filename="gunbullets.h" />
+		<Unit filename="humain.cpp" />
+		<Unit filename="humain.h" />
+		<Unit filename="jeu.cpp" />
+		<Unit filename="jeu.h" />
+		<Unit filename="joueur.cpp" />
+		<Unit filename="joueur.h" />
+		<Unit filename="laser.h" />
+		<Unit filename="mineball.cpp" />
+		<Unit filename="mineball.h" />
+		<Unit filename="minebullets.cpp" />
+		<Unit filename="minebullets.h" />
+		<Unit filename="minegun.cpp" />
+		<Unit filename="minegun.h" />
+		<Unit filename="outils.cpp" />
+		<Unit filename="outils.h" />
+		<Unit filename="plasma.cpp" />
+		<Unit filename="plasma.h" />
+		<Unit filename="plasmabullets.cpp" />
+		<Unit filename="plasmabullets.h" />
+		<Unit filename="soins.cpp" />
+		<Unit filename="soins.h" />
+		<Unit filename="son.cpp" />
+		<Unit filename="son.h" />
+		<Unit filename="souris.cpp" />
+		<Unit filename="souris.h" />
+		<Unit filename="stupid.cpp" />
+		<Unit filename="stupid.h" />
+		<Unit filename="tribullets.cpp" />
+		<Unit filename="tribullets.h" />
+		<Unit filename="trigun.cpp" />
+		<Unit filename="trigun.h" />
+		<Unit filename="vaisseau.cpp" />
+		<Unit filename="vaisseau.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

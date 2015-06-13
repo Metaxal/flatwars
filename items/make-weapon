@@ -1,0 +1,55 @@
+#!/bin/bash
+
+weapon="$1"
+
+if [ -z "$weapon" ]; then
+    echo "Error: A weapon name is required."
+    exit -1
+fi
+
+Weapon=${weapon^}
+WEAPON=${weapon^^} 
+
+weapon_h="$weapon.h"
+weapon_cpp="$weapon.cpp"
+weapon_bullet_h="$weapon-bullet.h"
+weapon_bullet_cpp="$weapon-bullet.cpp"
+weapon_ammo_h="$weapon-ammo.h"
+weapon_ammo_cpp="$weapon-ammo.cpp"
+
+
+### Copy the template, adjust the filenames
+[ -d "$weapon" ] && { echo "Directory $weapon already exists." ; exit -1; }
+cp -r templates/@weapon@ "$weapon"
+cd "$weapon" || exit -1
+for f in *.cpp *.h; do 
+    mv $f $(echo $f | sed "s/@weapon@/$weapon/")
+done
+
+### Change patterns names in files by actual names
+sed -i -e "s/@weapon@/$weapon/g" -e "s/@Weapon@/$Weapon/g" -e "s/@WEAPON@/$WEAPON/g" *
+
+### (TODO) In items.cpp: replace the placeholders by the correct code
+cd ..
+include_placeholder="// INCLUDE_ITEM_PLACEHOLDER"
+init_placeholder="// INIT_ITEM_PLACEHOLDER"
+end_placeholder="// END_ITEM_PLACEHOLDER"
+sed -i \
+    -e "s%$include_placeholder%#include \"$weapon/$weapon_h\"\n#include \"$weapon/$weapon_ammo_h\"\n#include \"$weapon/$weapon_bullet_h\"\n\n$include_placeholder%g" \
+    -e "s%^\(\s*\)$init_placeholder%\1$Weapon::gameInit(jeu);\n\
+\1${Weapon}Ammo::gameInit(jeu);\n\
+\1${Weapon}Bullet::gameInit(jeu);\n\
+\1jeu->registerArme(new ${Weapon}(), new ${Weapon}Ammo());\n\
+\n\1$init_placeholder%g" \
+    -e "s%^\(\s*\)$end_placeholder%\1$Weapon::gameEnd(jeu);\n\
+\1${Weapon}Ammo::gameEnd(jeu);\n\
+\1${Weapon}Bullet::gameEnd(jeu);\n\
+\n\1$end_placeholder%g" \
+    items.cpp
+
+mkdir -p "../img/$weapon" "../snd/$weapon" # no problem if the directories already exist?
+echo "TODO (by you):
+  - in ../img/$weapon, add weapon.bmp, bullet.bmp, ammo.bmp
+  - in ../snd/$weapon, add fire1.wav and fire2.wav
+"
+

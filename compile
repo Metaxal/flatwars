@@ -1,0 +1,2 @@
+g++ -o jeubot *.cpp items/*.cpp items/*/*.cpp players/*.cpp players/*/*.cpp -O2 -fpermissive `sdl-config --cflags --libs` -lSDL_ttf -lSDL_image -lSDL_mixer
+

@@ -1,0 +1,18 @@
+Improvements:
+- multiplayer online (or local network) 
+- balls that can rebound on walls
+- more capabilities for the AGBots (Turing-complete set of instructions)
+- maybe an NN/GA bot?
+- more weapons?
+- more levels?
+- level editor
+- A* bot (see Infinite Super Mario: http://www.doc.ic.ac.uk/~rb1006/projects:marioai)
+
+Changes:
+- make a subdirectory per ship
+    - update Jeu::init() and elsewhere
+
+Bug fixes:
+- balls sometimes don't hit the ship when they should.
+
+
