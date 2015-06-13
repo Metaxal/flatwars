@@ -1,6 +1,9 @@
 # flatwars
 A 2D frag'em all game
 
+_Horrible graphics!_ _Unbearable sound FX!_ _No introduction, no conclusion!_
+(but so much fun to play!)
+
 ## Install, Compile and Run
 On Ubuntu and other distributions, you will need to install a few libraries:
 ```shell
