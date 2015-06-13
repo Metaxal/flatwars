@@ -3,7 +3,7 @@
 #include <iostream>
 #include "joueur.h"
 #include "jeu.h"
-#include "jeubot.h"
+#include "main.h"
 #include "son.h"
 #include "SDL/SDL.h"
 

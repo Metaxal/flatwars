@@ -3,7 +3,7 @@
 #include "@weapon@-ammo.h"
 #include "../../jeu.h"
 #include "../../son.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 int @Weapon@::_son1 = -1;
 int @Weapon@::_son2 = -1;

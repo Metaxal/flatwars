@@ -1,5 +1,5 @@
 #include "plasmagun-bullet.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 SDL_Surface* PlasmagunBullet::_surface = NULL;
 

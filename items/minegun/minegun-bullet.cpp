@@ -1,5 +1,5 @@
 #include "minegun-bullet.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 SDL_Surface* MinegunBullet::_surface = NULL;
 

@@ -2,7 +2,7 @@
 #include <iomanip>
 #include <sstream>
 #include "ag-bot.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 #include "../../ammo.h"
 #include "../../outils.h"
 #include "../../items/life/life-bonus.h"

@@ -1,5 +1,5 @@
 #include "autogun-ammo.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 #define INC_AMMO 31
 

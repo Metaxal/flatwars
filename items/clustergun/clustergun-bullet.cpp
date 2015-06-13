@@ -1,6 +1,6 @@
 #include "clustergun-bullet.h"
 #include "../gun/gun-bullet.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 SDL_Surface* ClustergunBullet::_surface = NULL;
 

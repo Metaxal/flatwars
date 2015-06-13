@@ -1,5 +1,5 @@
 #include "shotgun-ammo.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 #define INC_AMMO 5
 

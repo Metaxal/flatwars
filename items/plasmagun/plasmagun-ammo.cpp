@@ -1,5 +1,5 @@
 #include "plasmagun-ammo.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 #define INC_AMMO 26
 

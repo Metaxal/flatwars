@@ -1,2 +1,2 @@
-g++ -o jeubot -g *.cpp items/*.cpp items/*/*.cpp players/*.cpp players/*/*.cpp `sdl-config --cflags --libs` -lSDL_ttf -lSDL_image -lSDL_mixer -Wall
+g++ -o flatwars -g *.cpp items/*.cpp items/*/*.cpp players/*.cpp players/*/*.cpp `sdl-config --cflags --libs` -lSDL_ttf -lSDL_image -lSDL_mixer -Wall
 

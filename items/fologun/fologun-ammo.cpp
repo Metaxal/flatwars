@@ -1,5 +1,5 @@
 #include "fologun-ammo.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 #define INC_AMMO 14
 

@@ -1,5 +1,5 @@
 #include "fologun-bullet.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 SDL_Surface* FologunBullet::_surface = NULL;
 

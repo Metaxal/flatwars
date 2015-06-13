@@ -1,5 +1,5 @@
 #include "life-bonus.h"
-#include "../../jeubot.h"
+#include "../../main.h"
 
 #define INC_VIE        15
 

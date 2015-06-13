@@ -47,10 +47,10 @@ public:
     virtual void exploseMur(int xc, int yc) {}
     virtual void exploseJoueur(Joueur* cible) {}
     void toExplose();
-    
+
 //    virtual SDL_Surface* surface() =0;
-    
-//    virtual ~Bullet() {}
+
+    virtual ~Bullet() {}
 };
 
 #endif

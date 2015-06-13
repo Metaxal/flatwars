@@ -77,7 +77,7 @@ protected:
     int _nbCasesY;
     int carte[XCMAX][YCMAX];
 
-    int _xEcran; // déclarées dans jeubot.h
+    int _xEcran; // déclarées dans main.h
     int _yEcran;
 
 

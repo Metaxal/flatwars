@@ -25,7 +25,7 @@ protected:
     int attente;
 public:
     Bonus();
-    
+
     virtual string name() =0;
 
     void setNumT(int i) { numT = i; }
@@ -33,10 +33,12 @@ public:
     virtual bool bonusAgir(Joueur* j) =0;
     bool affichable();
     void decAttente() { if(attente > 0) attente--; }
-    
+
     // Probability of occurrence on the map, w.r.t. its size, over 10000.
     virtual unsigned int probaOcc() { return 1000; }
-    
+
+    virtual ~Bonus() {}
+
 };
 
 

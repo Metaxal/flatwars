@@ -5,7 +5,7 @@
 #include <list>
 #include <algorithm>
 #include "jeu.h"
-#include "jeubot.h"
+#include "main.h"
 #include "ammo.h"
 
 // Armes, ammos et bonus:
