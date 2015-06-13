@@ -22,7 +22,7 @@ Compile (sorry, no makefile):
 $ cd flatwars
 $ ./compile
 ```
-Not it's ready to run:
+Now it's ready to run:
 ```shell
 $ ./flatwars
 ```
