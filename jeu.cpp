@@ -173,7 +173,6 @@ void Jeu::ajouterJoueur(Joueur* j)
 */
 void Jeu::enleverJoueur(unsigned int j)
 {
-    cout << "enlever joueur ?" << endl;
     delete _joueurs[j];
     _joueurs[j] = _joueurs.back();
     _joueurs.pop_back();

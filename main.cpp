@@ -604,7 +604,7 @@ void readArgs(int argc, char* args[])
         {
             szGameCfg = args[i];
             cout << "Game config file: " << szGameCfg << endl;
-        loadGameCfg(szGameCfg);
+            loadGameCfg(szGameCfg);
         }
         else if(!strcmp(args[i], "-b") && ++i < argc)
         {
