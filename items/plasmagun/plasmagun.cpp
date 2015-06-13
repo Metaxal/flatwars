@@ -4,7 +4,7 @@
 #include "../../jeu.h"
 #include "../../son.h"
 #include "../../joueur.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 int Plasmagun::_son1 = -1;
 int Plasmagun::_son2 = -1;

@@ -1,6 +1,6 @@
 #include "tracking-bullet.h"
 #include "autogun.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 SDL_Surface* TrackingBullet::_surface = NULL;
 

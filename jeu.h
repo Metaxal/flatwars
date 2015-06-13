@@ -68,8 +68,8 @@ protected:
 
 	//int _nbBotsACreer;
 	vector<CfgPlayer> _cfgPlayers;
-	
-	
+
+
 	string _szFloor;
 
 	unsigned int _jCourant;
@@ -77,7 +77,7 @@ protected:
 	int _nbCasesY;
 	int carte[XCMAX][YCMAX];
 
-    int _xEcran; // déclarées dans JeuBot2.h
+    int _xEcran; // déclarées dans jeubot.h
     int _yEcran;
 
 
@@ -87,10 +87,10 @@ protected:
 
 public:
 	Jeu();
-    virtual ~Jeu();	
-    
+    virtual ~Jeu();
+
     string szFloor() { return _szFloor; }
-	
+
 	int nbJoueurs() { return _joueurs.size(); }
 	int nbCasesX() { return _nbCasesX; }
 	int nbCasesY() { return _nbCasesY; }

@@ -3,7 +3,7 @@
 #include "clustergun-ammo.h"
 #include "../../jeu.h"
 #include "../../son.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 int Clustergun::_son1 = -1;
 int Clustergun::_son2 = -1;

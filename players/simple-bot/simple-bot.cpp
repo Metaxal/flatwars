@@ -8,7 +8,7 @@
 #include "simple-bot.h"
 #include "../../items/life/life-bonus.h"
 #include "../../ammo.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 #include "../../outils.h"
 
 #define GETLIFE     1

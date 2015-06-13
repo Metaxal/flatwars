@@ -4,7 +4,7 @@
 #include "humain.h"
 #include "../../son.h"
 #include "../../souris.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 using std::ifstream;
 using std::stringstream;

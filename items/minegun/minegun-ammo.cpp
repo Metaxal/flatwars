@@ -1,5 +1,5 @@
 #include "minegun-ammo.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 #define INC_AMMO 3
 

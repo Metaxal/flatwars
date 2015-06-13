@@ -3,7 +3,7 @@
 #include "minegun-ammo.h"
 #include "../../jeu.h"
 #include "../../son.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 int Minegun::_son1 = -1;
 int Minegun::_son2 = -1;

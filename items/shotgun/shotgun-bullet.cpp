@@ -1,5 +1,5 @@
 #include "shotgun-bullet.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 SDL_Surface* ShotgunBullet::_surface = NULL;
 

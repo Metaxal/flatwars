@@ -1,5 +1,5 @@
 #include "affichable.h"
-#include "jeubot2.h"
+#include "jeubot.h"
 
 Affichable::Affichable() :
     _animer(false)

@@ -5,7 +5,7 @@
 #include <list>
 #include <algorithm>
 #include "jeu.h"
-#include "jeubot2.h"
+#include "jeubot.h"
 //#include "humain.h"
 //#include "stupid.h"
 //#include "agbot.h"

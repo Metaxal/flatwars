@@ -1,6 +1,6 @@
 #include <math.h>
 #include "autogun-bullet.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 #include "../../joueur.h"
 
 SDL_Surface* AutogunBullet::_surface = NULL;

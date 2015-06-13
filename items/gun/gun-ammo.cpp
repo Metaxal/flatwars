@@ -1,5 +1,5 @@
 #include "gun-ammo.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 #define INC_AMMO 42
 

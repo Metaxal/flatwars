@@ -1,7 +1,7 @@
 #include <math.h>
 #include "arme.h"
 #include "son.h"
-//#include "jeubot2.h"
+//#include "jeubot.h"
 
 int Arme::_numT = -1;
 

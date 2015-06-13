@@ -1,6 +1,6 @@
 #include "bullet.h"
 #include "jeu.h"
-#include "jeubot2.h" // for PI
+#include "jeubot.h" // for PI
 #include <math.h>
 #include <iostream>
 

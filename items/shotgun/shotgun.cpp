@@ -3,7 +3,7 @@
 #include "shotgun-ammo.h"
 #include "../../jeu.h"
 #include "../../son.h"
-#include "../../jeubot2.h"
+#include "../../jeubot.h"
 
 int Shotgun::_son1 = -1;
 int Shotgun::_son2 = -1;
