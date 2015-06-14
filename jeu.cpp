@@ -284,21 +284,27 @@ void Jeu::loadBoardCfg(const string fich)
     while(!ifs.eof())
     {
         ifs.getline(ligne, 500, '=');
-        if(!strcmp(ligne, "NBCASESX"))
+        if(!strcmp(ligne, "NUMCELLSX"))
         {
             int xm;
             ifs >> xm;
             cout << XMAX << " " << DXCASE << " " << XCMAX << endl;
-            if(xm >= XMAX/DXCASE && xm <= XCMAX)
-                _nbCasesX = xm;
+            _nbCasesX = xm;
+            if(xm < XMAX/DXCASE)
+                _nbCasesX = XMAX/DXCASE;
+            if(xm > XCMAX)
+                _nbCasesX = XCMAX;
             cout << "nbCasesX = " << _nbCasesX << " (" << xm << ")" << endl;
         }
-        else if(!strcmp(ligne, "NBCASESY"))
+        else if(!strcmp(ligne, "NUMCELLSY"))
         {
             int ym;
             ifs >> ym;
-            if(ym >= YMAX/DYCASE && ym <= YCMAX)
-                _nbCasesY = ym;
+            _nbCasesY = ym;
+            if(ym < YMAX/DYCASE)
+                _nbCasesY = YMAX/DYCASE;
+            if(ym > YCMAX)
+                _nbCasesY = YCMAX;
             cout << "nbCasesY = " << _nbCasesY << " (" << ym << ")" << endl;
         }
         else if(!strcmp(ligne, "PLAYER"))
@@ -308,7 +314,7 @@ void Jeu::loadBoardCfg(const string fich)
             ifs >> c.ship; // if -1, then random
             ifs >> c.nb;
             _cfgPlayers.push_back(c);
-            cout << "Player " << c.playerClass << "(" << c.ship << ")" << " × " << c.nb << endl;
+            cout << "Player " << c.playerClass << "(" << c.ship << ")" << " x " << c.nb << endl;
         }
         /*else if(!strcmp(ligne, "NBBOTS"))
         {
