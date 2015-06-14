@@ -17,6 +17,8 @@ using namespace std;
 int nbActions = 10;
 const char* actions[] = {"FORWARD", "BACKWARD", "STRAFE_LEFT", "STRAFE_RIGHT", "TURN_LEFT", "TURN_RIGHT", "FIRE1", "FIRE2", "RADAR", "NEXT_WEAPON"};
 
+const char* outFile = "kb.cfg";
+
 void askKey(int n)
 {
     printf("%s: ", actions[n]);
@@ -29,7 +31,7 @@ void DisplayState(SDL_KeyboardEvent *key)
         printf("RELEASED: ");
     else
         printf("PRESSED: ");
- 
+
 }
 
 void DisplayModifiers(SDL_KeyboardEvent *key)
@@ -52,8 +54,8 @@ void DisplayKey(SDL_KeyboardEvent *key)
 {
     printf( "%s (%d)\n", SDL_GetKeyName(key->keysym.sym), key->keysym.sym);
 }
- 
- 
+
+
  int main ( int argc, char** argv )
 {
     // initialize SDL video
@@ -88,9 +90,10 @@ void DisplayKey(SDL_KeyboardEvent *key)
     dstrect.x = (screen->w - bmp->w) / 2;
     dstrect.y = (screen->h - bmp->h) / 2;
     */
-    
-    ofstream cfgFile("kb.cfg");
-    
+
+    cout << "Configuration will be written to " << outFile << endl;
+    ofstream cfgFile(outFile);
+
 
     // program main loop
     int nAct = 0;
@@ -139,7 +142,7 @@ void DisplayKey(SDL_KeyboardEvent *key)
         // finally, update the screen :)
         //SDL_Flip(screen);
     } // end main loop
-    
+
     cfgFile.close();
 
     // free loaded bitmap

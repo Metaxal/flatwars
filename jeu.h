@@ -54,6 +54,7 @@ class Arme;
 struct CfgPlayer
 {
     string playerClass;
+    int ship; // kind of ship
     unsigned int nb; // number of players of this class to create
 };
 

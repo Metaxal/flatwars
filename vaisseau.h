@@ -6,8 +6,8 @@
 #define DXSHIP    32
 #define DYSHIP    32
 
-#define FREIN    0.1 //0.1
-#define ACCEL    0.3 //0.3
+#define FREIN    0.1
+#define ACCEL    0.3
 
 /*
     avec V(n+1) = V(n) + acc - V(n)*frein
@@ -21,15 +21,14 @@
 #define ACCEL    0.03
 */
 
-#define BALOURD    0
+#define BALOURD   0
 #define BALEZE    1
-#define MOYEN    2
-#define LEGER    3
+#define MOYEN     2
+#define LEGER     3
 #define OISEAU    4
+#define LAST_SHIP 4
 
 #define NB_IMG_SHIP 24
-
-
 
 class Vaisseau
 {

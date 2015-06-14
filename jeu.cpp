@@ -305,9 +305,10 @@ void Jeu::loadBoardCfg(const string fich)
         {
             CfgPlayer c;
             ifs >> c.playerClass;
+            ifs >> c.ship; // if -1, then random
             ifs >> c.nb;
             _cfgPlayers.push_back(c);
-            cout << "Player " << c.playerClass << " × " << c.nb << endl;
+            cout << "Player " << c.playerClass << "(" << c.ship << ")" << " × " << c.nb << endl;
         }
         /*else if(!strcmp(ligne, "NBBOTS"))
         {
@@ -656,15 +657,22 @@ void Jeu::init(const string boardFile)
     PRINT_HERE
 
     // Adding players based on the configuration file
-    // format in cfg file: PLAYER=<PlayerClass> <number>
+    // format in cfg file: PLAYER=<PlayerClass> <ship> <number>
     for(unsigned int i = 0; i < _cfgPlayers.size(); i++)
     {
-        for(unsigned int n = 0; n < _cfgPlayers[i].nb; n++)
-            jeuAjouterJoueur(this, _cfgPlayers[i].playerClass, rand() % 5);
+        for(unsigned int n = 0; n < _cfgPlayers[i].nb; n++) {
+            int ship = -1;
+            if(_cfgPlayers[i].ship >= 0 and _cfgPlayers[i].ship <= LAST_SHIP)
+                ship = _cfgPlayers[i].ship;
+            else
+                ship = rand() % LAST_SHIP;
+
+            jeuAjouterJoueur(this, _cfgPlayers[i].playerClass, ship);
+        }
     }
 
     // The last added player gets the focus
-    jeuAjouterJoueur(this, "Humain", OISEAU);
+    //jeuAjouterJoueur(this, "Humain", OISEAU);
 
     PRINT_HERE
 
