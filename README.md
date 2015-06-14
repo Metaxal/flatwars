@@ -36,6 +36,19 @@ By default, the `cfg/board.cfg` and `cfg/game.cfg` files are loaded. This can be
 $ ./flatwars -b <my-board-config-file> -g <my-game-config-file>
 ```
 
+### Game config file (`cfg/game.cfg`)
+
+`XMAX` and `YMAX` define the size in pixels of the window, and if `FULLSCREEN` is 0, then the game runs in windowed mode, and if it is 1, it runs in fullscreen mode.
+
+### Board config file (`cfg/board.cfg`)
+
+`NBCASESX` and `NBCASESY` are the number of cells on the X and Y coordinates.
+`FLOOR_IMG` is the picture to use for the floor.
+To add players to a board, add one or more lines with
+```PLAYER=<PlayerClass> <ShipNumber> <Number>```, where the `PlayerClass` is the name of one of the strings registered in the function `initPlayers` in `players/players.cpp` (currently, `SimpleBot`, `Humain` or `AGBot`, the latter being for test only). Don't forget a line with the human player if you want to play and not just watch!
+
+### Keyboard config file (`cfg/kb.cfg`)
+
 The keys of the human player are defined in the (fixed) file `cfg/kb.cfg`. 
 To help define the keys, the `cfg` directory also contains a `kb-config` program.
 Compile it with
