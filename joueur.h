@@ -13,30 +13,20 @@
 using std::vector;
 using std::string;
 
-/*
-#define FORWARD            1 << 0
-#define BACKWARD        1 << 1
-#define STRAFE_LEFT        1 << 2
-#define STRAFE_RIGHT    1 << 3
-#define TURN_LEFT        1 << 4
-#define TURN_RIGHT        1 << 5
-#define FIRE1            1 << 6
-#define FIRE2            1 << 7*/
-const int FORWARD        =    1 << 0;
-const int BACKWARD        =   1 << 1;
-const int STRAFE_LEFT    =    1 << 2;
-const int STRAFE_RIGHT    =   1 << 3;
-const int TURN_LEFT    =    1 << 4;
+const int FORWARD       =    1 << 0;
+const int BACKWARD      =    1 << 1;
+const int STRAFE_LEFT   =    1 << 2;
+const int STRAFE_RIGHT  =    1 << 3;
+const int TURN_LEFT     =    1 << 4;
 const int TURN_RIGHT    =    1 << 5;
-const int FIRE1        =    1 << 6;
-const int FIRE2        =    1 << 7;
+const int FIRE1         =    1 << 6;
+const int FIRE2         =    1 << 7;
 // si on depasse 32, penser a changer le type de action.
 
-#define TOUCHE_INIT            10
-#define TOUCHE_MORT_INIT    200
+#define TOUCHE_INIT         10
+#define TOUCHE_MORT_INIT    100
 
-#define TAILLE_NOM        20
-
+#define TAILLE_NOM          20
 
 class Jeu;
 class Bonus;
@@ -75,7 +65,7 @@ protected:
     int action;
     vector<Arme*> _armes;
     int _arme;
-    
+
     static SDL_Surface* _SVieCadre;
     static SDL_Surface* _SVie;
     static int _sonMort;
@@ -93,7 +83,7 @@ public:
     int image();
     SDL_Rect RECTImg();
     //SDL_Rect RECTImg_arme();
-    
+
     static void loadSons();
     static void loadSurfaces();
     static void freeSurfaces();
@@ -161,7 +151,7 @@ public:
     int distAugAvantOccupe(double dx, double dy);
     int distJoueurCourant();
     void jouerSonJoueur(int s);
-    
+
     void afficherHUD(SDL_Surface* SScreen); // Head-Up Display
     virtual void OSD() {} // on screen display
 

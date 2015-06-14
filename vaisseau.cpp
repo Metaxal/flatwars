@@ -13,17 +13,17 @@ void Vaisseau::initVaisseau(int num)
     {
     case BALOURD :
         _vieInit = 400;
-        _acc = ACCEL*0.6;
+        _acc = ACCEL*0.8;
         _frein = FREIN;
         break;
     case BALEZE :
-        _vieInit = 160;
-        _acc = ACCEL*0.8;
+        _vieInit = 200;
+        _acc = ACCEL*1.0;
         _frein = FREIN;
         break;
     case LEGER :
         _vieInit = 100;
-        _acc = ACCEL*1.2;
+        _acc = ACCEL*1.4;
         _frein = FREIN;
         break;
     case OISEAU :
@@ -33,7 +33,7 @@ void Vaisseau::initVaisseau(int num)
         break;
     default /*MOYEN*/:
         _vieInit = 120;
-        _acc = ACCEL;
+        _acc = ACCEL*1.2;
         _frein = FREIN;
     }
 
