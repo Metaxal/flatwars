@@ -1,7 +1,7 @@
 # flatwars
 A 2D frag'em all game
 
-_Horrible graphics!_ _Unbearable sound FX!_ _No nice story!_
+_Horrible graphics!_ _Unbearable sound FX!_ _Inexistent story!_
 (but so much fun to play!)
 
 ![Screenshot](img/screenshots/screenshot1.png)
